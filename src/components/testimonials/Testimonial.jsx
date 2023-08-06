@@ -13,12 +13,12 @@ import 'swiper/css/pagination';
 const data = [
   {
     avatar: AVTR1,
-    name: 'Tina Snow',
+    name: 'Sanal Sunny',
     review: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid adipisci, quibusdam beatae fugiat suscipit tempore fugit, molestias vel ipsum non voluptatum ad amet minus quia deleniti? Veritatis autem repudiandae tenetur!',
   },
   {
     avatar: AVTR2,
-    name: 'Shatta Wale',
+    name: 'Rahul Rahu',
     review: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid adipisci, quibusdam beatae fugiat suscipit tempore fugit, molestias vel ipsum non voluptatum ad amet minus quia deleniti? Veritatis autem repudiandae tenetur!',
   },
   {

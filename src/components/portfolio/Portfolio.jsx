@@ -3,45 +3,24 @@ import './portfolio.css'
 import IMG1 from '../../assets/portfolio1.jpg'
 import IMG2 from '../../assets/portfolio2.jpg'
 import IMG3 from '../../assets/portfolio3.jpg'
-import IMG4 from '../../assets/portfolio4.jpg'
-import IMG5 from '../../assets/portfolio5.png'
-import IMG6 from '../../assets/portfolio6.jpg'
 
 const data = [
   {
     id:1,
     Image: IMG1,
-    title: 'Crypto Currency Dashboard & Financial Visualization',
+    title: 'ChatGpt based java webApp',
     github: 'https://github.com',
   },
   {
     id:2,
     Image: IMG2,
-    title: 'Charts templates & infographics',
+    title: 'OCR based Image to Text converter',
     github: 'https://github.com',
   },
   {
     id:3,
     Image: IMG3,
-    title: 'Dashboard UI Kit for data design web apps',
-    github: 'https://github.com',
-  },
-  {
-    id:4,
-    Image: IMG4,
-    title: 'Maintaining tasks and tracking progress',
-    github: 'https://github.com',
-  },
-  {
-    id:5,
-    Image: IMG5,
-    title: 'Charts templates & Infographics',
-    github: 'https://github.com',
-  },
-  {
-    id:6,
-    Image: IMG6,
-    title: 'Charts templates & Infographics',
+    title: 'Music App',
     github: 'https://github.com',
   }
 ]

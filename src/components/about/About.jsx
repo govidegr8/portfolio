@@ -35,7 +35,10 @@ const About = () => {
               <small>10+ Completed projects</small>
             </article>
           </div>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis velit laborum ex illum architecto? Velit officiis error explicabo, dolorum non vel recusandae mollitia, iure inventore quos, quia voluptatibus libero quidem?</p>
+          <p>As a skilled software engineer with a strong background in e-learning, I bring a wealth of experience in English,
+Java and Spring Framework. With a Bachelor of Technology in Computer Science from the College of Engineering
+Kallooppara, whether working independently or as part of a team, I am committed to delivering projects on time
+and on budget, while always striving for excellence in everything I do</p>
           <a href="#contact" className='btn btn_primary'>Let's Talk</a>
         </div>
       </div>
