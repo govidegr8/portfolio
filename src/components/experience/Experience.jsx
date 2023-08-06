@@ -48,7 +48,7 @@ const Experience = () => {
           </article>
           <article className='experience_details'>
             <BsPatchCheckFill className='experience_details_icon' />
-            <h4>Spring</h4>
+            <h4>Spring/SpringBoot</h4>
             <small className='text-light'>Experienced</small>
           </article>
           <article className='experience_details'>
