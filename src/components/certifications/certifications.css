@@ -1,4 +1,4 @@
-.testimonials_container {
+.certifications_container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
@@ -32,7 +32,7 @@
 
 /* MEDIA QUERIES(MEDIUM) */
 @media screen and (max-width: 1024px) {
-    .testimonials_container {
+    .certifications_container {
         grid-template-columns: 1fr;
     }
 }

@@ -1,12 +1,12 @@
 import React from 'react'
-import './testimonial.css'
+import './certifications.css'
 
 const Certifications = () => {
   return (
     <section id='certifications'>
       <h5>My Qualifications</h5>
       <h2>Education & Certifications</h2>
-      <div className='container testimonials_container'>
+      <div className='container certifications_container'>
         <div className='education_card'>
           <h3>B.Tech, Computer Science</h3>
           <h5 className='text-light'>College of Engineering Kallooppara (KTU), Kerala</h5>
