@@ -18,8 +18,8 @@ function Nav() {
                   className={activeNav === '#about' ? 'active' : ''}><AiOutlineUser /></a>
       <a href='#experience' onClick={()=> setActiveNav('#experience')}
                             className={activeNav === '#experience' ? 'active' : ''}><FiBook /></a>
-      <a href='#testimonials' onClick={()=> setActiveNav('#testimonials')}
-                          className={activeNav === '#testimonials' ? 'active' : ''}><RiServiceLine /></a>
+      <a href='#certifications' onClick={()=> setActiveNav('#certifications')}
+                          className={activeNav === '#certifications' ? 'active' : ''}><RiServiceLine /></a>
       <a href='#contact' onClick={()=> setActiveNav('#contact')}
                           className={activeNav === '#contact' ? 'active' : ''}><BiMessageDots /></a>
     </nav>
