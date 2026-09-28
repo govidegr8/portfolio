@@ -11,7 +11,12 @@ const Certifications = () => {
           <h3>B.Tech, Computer Science</h3>
           <h5 className='text-light'>College of Engineering Kallooppara (KTU), Kerala</h5>
           <small className='text-light'>2017-2021</small>
+          
+          <h3>Software Development Specialisation</h3>
+          <h5 className='text-light'>Scaler Academy</h5>
+          <small className='text-light'>2025-2026</small>
         </div>
+        
         
         <div className='certifications_list'>
           <h3>Certifications</h3>

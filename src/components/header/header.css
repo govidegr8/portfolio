@@ -36,55 +36,45 @@ header{
     background: var(--color-primary);
 }
 
-/*IMAGE*/
-.me{
-    background: linear-gradient(var(--color-primary),transparent);
+/*IMAGE-CARD*/
+.card{
+    background: var(--color-white);
     width: 22rem;
-    height: 30rem;
+    height: 21rem;
     position: absolute;
     left: calc(50% - 11rem);
-    margin-top: 4rem;
-    border-radius: 1.5rem; /* Full rounded corners like a card */
-    border: 1px solid rgba(255, 255, 255, 0.05); /* Subtle card edge */
+    margin-top: 10rem;
+    border-radius: 1.5rem; 
+    border: 1px solid rgba(255, 255, 255, 0.05); 
     overflow: hidden;
-    padding: 5rem 1.5rem 1.5rem 1.5rem ;
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Playing Card Corner Indices */
-.me::before, .me::after {
+.card::before, .card::after {
     content: "K \A ♥";
     white-space: pre;
     position: absolute;
     font-size: 1.2rem;
     line-height: 1.1;
     text-align: center;
-    color: var(--color-primary);
-    opacity: 0.4;
+    color: rgb(237, 11, 11);
+    opacity: 0.8;
     font-weight: bold;
     font-family: 'Times New Roman', serif;
     z-index: 10;
 }
 
-.me::before {
+.card::before {
     top: 1rem;
     left: 1rem;
 }
 
-.me::after {
+.card::after {
     bottom: 1rem;
     right: 1rem;
     transform: rotate(180deg);
-}
-
-.me img {
-    filter: grayscale(100%);
-    transition: filter 0.5s ease-in-out;
-}
-
-.me:hover img {
-    filter: grayscale(0%);
 }
 
 /*SCROLL DOWN*/
@@ -97,17 +87,11 @@ header{
     font-size: 0.9rem;
 }
 
-/* MEDIA QUERIES(MEDIUM) */
-@media screen and (max-width: 1024px) {
-    header{
-        height: 68vh;
-    }
-}
-
 /* MEDIA QUERIES(SMALL) */
 @media screen and (max-width: 600px) {
     header{
         height: 100vh;
+        padding: 2rem;
     }
 
     .header_socials , .scroll_down {
