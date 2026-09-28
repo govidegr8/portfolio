@@ -1,0 +1,116 @@
+header{
+    height: 100vh;
+    padding-top: 7rem;
+    overflow: hidden;
+}
+
+.header_container{
+    text-align: center;
+    height: 100%;
+    position: relative;
+}
+
+/*CTA*/
+.cta{
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+}
+
+/*HEADER SOCIALS*/
+.header_socials{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    position: absolute;
+    left: 0;
+    bottom: 3rem;
+}
+
+.header_socials::after{
+    content: '';
+    width: 1px;
+    height: 2rem;
+    background: var(--color-primary);
+}
+
+/*IMAGE*/
+.me{
+    background: linear-gradient(var(--color-primary),transparent);
+    width: 22rem;
+    height: 30rem;
+    position: absolute;
+    left: calc(50% - 11rem);
+    margin-top: 4rem;
+    border-radius: 1.5rem; /* Full rounded corners like a card */
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Subtle card edge */
+    overflow: hidden;
+    padding: 5rem 1.5rem 1.5rem 1.5rem ;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Playing Card Corner Indices */
+.me::before, .me::after {
+    content: "K \A ♥";
+    white-space: pre;
+    position: absolute;
+    font-size: 1.2rem;
+    line-height: 1.1;
+    text-align: center;
+    color: var(--color-primary);
+    opacity: 0.4;
+    font-weight: bold;
+    font-family: 'Times New Roman', serif;
+    z-index: 10;
+}
+
+.me::before {
+    top: 1rem;
+    left: 1rem;
+}
+
+.me::after {
+    bottom: 1rem;
+    right: 1rem;
+    transform: rotate(180deg);
+}
+
+.me img {
+    filter: grayscale(100%);
+    transition: filter 0.5s ease-in-out;
+}
+
+.me:hover img {
+    filter: grayscale(0%);
+}
+
+/*SCROLL DOWN*/
+.scroll_down{
+    position: absolute;
+    right: -2rem;
+    bottom: 5rem;
+    transform: rotate(90deg);
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+/* MEDIA QUERIES(MEDIUM) */
+@media screen and (max-width: 1024px) {
+    header{
+        height: 68vh;
+    }
+}
+
+/* MEDIA QUERIES(SMALL) */
+@media screen and (max-width: 600px) {
+    header{
+        height: 100vh;
+    }
+
+    .header_socials , .scroll_down {
+        display: none;
+    }
+}
