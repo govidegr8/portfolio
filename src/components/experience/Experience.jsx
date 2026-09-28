@@ -8,7 +8,7 @@ const Experience = () => {
       <h5>The Skills I Have</h5>  
       <h2>My Skills</h2>
       <div className='container experience_container'>
-        <div className='experience_frontend'>
+        <div className='experience_development'>
           <h3>Core Development</h3>
           <div className='experience_content'>
             <article className='experience_details'>
@@ -42,7 +42,7 @@ const Experience = () => {
           </div>
         </div>
 
-        <div className='experience_backend'>
+        <div className='experience_ai'>
           <h3>AI & ML</h3>
           <div className='experience_content'>
             <article className='experience_details'>
@@ -69,7 +69,7 @@ const Experience = () => {
           </div>
         </div>
 
-        <div className='experience_backend'>
+        <div className='experience_devops'>
           <h3>Cloud & DevOps</h3>
           <div className='experience_content'>
             <article className='experience_details'>
@@ -96,7 +96,7 @@ const Experience = () => {
           </div>
         </div>
 
-        <div className='experience_backend'>
+        <div className='experience_data'>
           <h3>Data & Streaming</h3>
           <div className='experience_content'>
             <article className='experience_details'>
