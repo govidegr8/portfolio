@@ -1,8 +1,10 @@
 import React, { useRef } from 'react'
 import CTA from './CTA'
 import './header.css'
-import ME from '../../assets/me.png'
+import ME from '../../assets/avatar.png'
+import VIDEO from '../../assets/kling_avatar_video.mp4'
 import HeaderSocials from './HeaderSocials'
+import AvatarVideo from './AvatarVideo'
 
 const Header = () => {
   const meRef = useRef(null);
@@ -51,12 +53,13 @@ const Header = () => {
         <CTA />
         <HeaderSocials />
         <div 
-          className='me' 
+          className='card' 
           ref={meRef}
           onMouseEnter={() => isHoveringMe.current = true}
           onMouseLeave={() => isHoveringMe.current = false}
         >
-          <img src={ME} alt="me" />
+          {/* <img src={ME} alt="me" /> */}
+          <AvatarVideo />
         </div>
 
         <a href='#contact' className='scroll_down'>Scroll Down</a>
