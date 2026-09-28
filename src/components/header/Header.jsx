@@ -1,8 +1,6 @@
 import React, { useRef } from 'react'
 import CTA from './CTA'
 import './header.css'
-import ME from '../../assets/avatar.png'
-import VIDEO from '../../assets/kling_avatar_video.mp4'
 import HeaderSocials from './HeaderSocials'
 import AvatarVideo from './AvatarVideo'
 
