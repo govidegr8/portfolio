@@ -2,18 +2,27 @@ import React from 'react'
 import './contact.css'
 import {MdOutlineEmail} from 'react-icons/md'
 import {BsWhatsapp} from'react-icons/bs'
-import { useRef } from 'react';
-import emailjs from 'emailjs-com'
+import { useRef, useState } from 'react';
+import { sendContactMessage } from '../../services/contactService'
 
 const Contact = () => {
 
   const form = useRef();
+  const [status, setStatus] = useState('idle')
 
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_n8gxtmr', 'template_zjz2ouq', form.current, 'tp5e5vBFI_MoOm0zs')
-    e.target.reset()
+    setStatus('sending')
+    sendContactMessage(form.current)
+      .then(() => {
+        e.target.reset()
+        setStatus('success')
+      })
+      .catch((error) => {
+        console.error('Contact form delivery failed:', error)
+        setStatus(error.message === 'Email service is not configured.' ? 'unconfigured' : 'error')
+      })
   };
   return (
     <section id='contact'>
@@ -36,10 +45,18 @@ const Contact = () => {
         </div>
         {/* End of contact Options */}
         <form ref={form} onSubmit={sendEmail}>
-          <input type="text" name='name' placeholder='Your Full Name' required />
-          <input type="email" name='email' placeholder='Your Email' required  />
-          <textarea name="message" rows="7" placeholder='Your Message' required></textarea>
-          <button type='submit' className='btn btn-primary'>Send Message</button>
+          <label htmlFor="contact-name">Your full name</label>
+          <input id="contact-name" type="text" name='name' placeholder='Your Full Name' required />
+          <label htmlFor="contact-email">Your email</label>
+          <input id="contact-email" type="email" name='email' placeholder='Your Email' required  />
+          <label htmlFor="contact-message">Your message</label>
+          <textarea id="contact-message" name="message" rows="7" placeholder='Your Message' required></textarea>
+          <button type='submit' className='btn btn-primary' disabled={status === 'sending'}>
+            {status === 'sending' ? 'Sending...' : 'Send Message'}
+          </button>
+          {status === 'success' && <p className="form_status success" role="status">Message sent successfully.</p>}
+          {status === 'unconfigured' && <p className="form_status error" role="alert">Email sending is not configured yet. Please use the email link directly.</p>}
+          {status === 'error' && <p className="form_status error" role="alert">Something went wrong. Please try again or email me directly.</p>}
         </form>
       </div>
     </section>
