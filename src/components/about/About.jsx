@@ -5,7 +5,7 @@ import { BsAwardFill } from 'react-icons/bs'
 import { FaUsers } from 'react-icons/fa'
 import { FaFolderPlus } from 'react-icons/fa'
 
-const About = () => {
+const About = ({ onNavigate }) => {
   return (
     <section id='about'>
       <h5>Get to Know</h5>
@@ -36,7 +36,10 @@ const About = () => {
             </article>
           </div>
           <p>I am a Software Engineer with over 4 years of experience specializing in high-scale Microservices and AI-integrated applications. Proven track record in architecting healthcare solutions using Java, Spring Boot and Reactjs, with expertise in Gen AI agents and medical imaging standards. A hands-on engineer skilled in guiding cross-functional teams through the full SDLC, from defining technical roadmaps to deploying cloud-native architectures. Committed to performance optimization and the strategic implementation of emerging technologies to solve complex clinical and business challenges.</p>
-          <a href="#contact" className='btn btn_primary'>Let's Talk</a>
+          <a href="#contact" className='btn btn_primary' onClick={(event) => {
+            event.preventDefault()
+            onNavigate('contact')
+          }}>Let's Talk</a>
         </div>
       </div>
     </section>

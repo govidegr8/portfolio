@@ -4,7 +4,7 @@ import './header.css'
 import HeaderSocials from './HeaderSocials'
 import AvatarVideo from './AvatarVideo'
 
-const Header = () => {
+const Header = ({ onScrollDown, onNavigate }) => {
   const meRef = useRef(null);
   const isHoveringMe = useRef(false);
 
@@ -48,7 +48,7 @@ const Header = () => {
         <h5>Hello I'm</h5>
         <h1>Govind S</h1>
         <h5 className='text-light'>Software Engineer</h5>
-        <CTA />
+        <CTA onNavigate={onNavigate} />
         <HeaderSocials />
         <div 
           className='card' 
@@ -60,7 +60,16 @@ const Header = () => {
           <AvatarVideo />
         </div>
 
-        <a href='#contact' className='scroll_down'>Scroll Down</a>
+        <a
+          href='#contact'
+          className='scroll_down'
+          onClick={(event) => {
+            event.preventDefault()
+            onScrollDown()
+          }}
+        >
+          Scroll Down
+        </a>
       </div>
     </header>
   )

@@ -6,22 +6,37 @@ import {AiOutlineUser} from 'react-icons/ai'
 import {FiBook} from 'react-icons/fi'
 import {RiServiceLine} from 'react-icons/ri'
 import {BiMessageDots} from 'react-icons/bi'
-import {useState} from 'react'
+import {BiBriefcase} from 'react-icons/bi'
+import {AiOutlineProject} from 'react-icons/ai'
 
-function Nav() {
-  const [activeNav, setActiveNav] = useState('#');
+function Nav({ activeSection, onNavigate }) {
+  const links = [
+    { id: 'home', icon: <AiOutlineHome /> },
+    { id: 'about', icon: <AiOutlineUser /> },
+    { id: 'experience', icon: <FiBook /> },
+    { id: 'work', icon: <BiBriefcase /> },
+    { id: 'portfolio', icon: <AiOutlineProject /> },
+    { id: 'certifications', icon: <RiServiceLine /> },
+    { id: 'contact', icon: <BiMessageDots /> },
+  ]
+
   return (
     <nav>
-      <a href='#' onClick={()=> setActiveNav('#')} 
-                  className={activeNav === '#' ? 'active' : ''}><AiOutlineHome /></a>
-      <a href='#about' onClick={()=> setActiveNav('#about')}
-                  className={activeNav === '#about' ? 'active' : ''}><AiOutlineUser /></a>
-      <a href='#experience' onClick={()=> setActiveNav('#experience')}
-                            className={activeNav === '#experience' ? 'active' : ''}><FiBook /></a>
-      <a href='#certifications' onClick={()=> setActiveNav('#certifications')}
-                          className={activeNav === '#certifications' ? 'active' : ''}><RiServiceLine /></a>
-      <a href='#contact' onClick={()=> setActiveNav('#contact')}
-                          className={activeNav === '#contact' ? 'active' : ''}><BiMessageDots /></a>
+      {links.map(({ id, icon }, index) => (
+        <a
+          href={`#${id}`}
+          key={id}
+          onClick={(event) => {
+            event.preventDefault()
+            onNavigate(index)
+          }}
+          className={activeSection === index ? 'active' : ''}
+          aria-label={`Go to ${id}`}
+          aria-current={activeSection === index ? 'page' : undefined}
+        >
+          {icon}
+        </a>
+      ))}
     </nav>
   )
 }
