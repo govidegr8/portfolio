@@ -22,14 +22,14 @@ function Portfolio() {
   return (
     <section id='portfolio'>
       <h5>My Recent Work</h5>
-      <h2>Portfolio</h2>
+      <h2>Projects</h2>
       <div className='container portfolio_container'>
         {
           data.map(({id, Image, title, github})=>{
             return(
             <article key={id} className='portfolio_item'>
               <div className='portfolio_item_image'>
-                <img src={Image} alt= {title}/>
+                <img src={Image} alt={title} loading="lazy" decoding="async" />
               </div>
               <h3>{title}</h3>
               <div className='portfolio_item_cta'>
