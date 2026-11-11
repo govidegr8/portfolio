@@ -22,7 +22,7 @@ const About = ({ onNavigate }) => {
             <article className='about_card'>
               <BsAwardFill className='about_icon' />
               <h5>Experience</h5>
-              <small>4+ Years of Working</small>
+              <small>5 Years of Working</small>
             </article>
             <article className='about_card'>
               <FaUsers className='about_icon' />
@@ -35,7 +35,7 @@ const About = ({ onNavigate }) => {
               <small>5+ Completed projects</small>
             </article>
           </div>
-          <p>I am a Software Engineer with over 4 years of experience specializing in high-scale Microservices and AI-integrated applications. Proven track record in architecting healthcare solutions using Java, Spring Boot and Reactjs, with expertise in Gen AI agents and medical imaging standards. A hands-on engineer skilled in guiding cross-functional teams through the full SDLC, from defining technical roadmaps to deploying cloud-native architectures. Committed to performance optimization and the strategic implementation of emerging technologies to solve complex clinical and business challenges.</p>
+          <p>I am a Software Engineer with over 5 years of experience specializing in high-scale Microservices and AI-integrated applications. Proven track record in architecting healthcare solutions using Java, Spring Boot and Reactjs, with expertise in Gen AI agents and medical imaging standards. A hands-on engineer skilled in guiding cross-functional teams through the full SDLC, from defining technical roadmaps to deploying cloud-native architectures. Committed to performance optimization and the strategic implementation of emerging technologies to solve complex clinical and business challenges.</p>
           <a href="#contact" className='btn btn_primary' onClick={(event) => {
             event.preventDefault()
             onNavigate('contact')

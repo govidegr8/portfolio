@@ -2,14 +2,14 @@ import React, { useCallback, useEffect, useRef, useState } from 'react'
 import Header from './components/header/Header'
 import Nav from './components/nav/Nav'
 import About from './components/about/About'
-import Experience from './components/experience/Experience'
+import Skills from './components/skills/Skills'
 import Work from './components/work/Work'
 import Portfolio from './components/portfolio/Portfolio'
 import Certifications from './components/certifications/Certifications'
 import Contact from './components/contact/Contact'
 import Footer from './components/footer/Footer'
 
-const sectionIds = ['home', 'about', 'experience', 'work', 'portfolio', 'certifications', 'contact']
+const sectionIds = ['home', 'about', 'skills', 'work', 'portfolio', 'certifications', 'contact']
 
 const App = () => {
   const [activeSection, setActiveSection] = useState(0)
@@ -44,7 +44,7 @@ const App = () => {
   const sections = [
     { id: 'home', component: <Header onScrollDown={goToFooter} onNavigate={navigateTo} /> },
     { id: 'about', component: <About onNavigate={navigateTo} /> },
-    { id: 'experience', component: <Experience /> },
+    { id: 'skills', component: <Skills /> },
     { id: 'work', component: <Work /> },
     { id: 'portfolio', component: <Portfolio /> },
     { id: 'certifications', component: <Certifications /> },
