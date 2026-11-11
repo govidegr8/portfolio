@@ -10,12 +10,46 @@ header{
     position: relative;
 }
 
+.header_intro{
+    max-width: 38rem;
+    margin: 1rem auto 0;
+    color: var(--color-light);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
 /*CTA*/
 .cta{
     margin-top: 2.5rem;
     display: flex;
     gap: 1.2rem;
     justify-content: center;
+}
+
+.header_proof{
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-top: 1.75rem;
+}
+
+.header_proof li{
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    min-width: 8rem;
+}
+
+.header_proof strong{
+    color: var(--color-primary);
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.header_proof span{
+    color: var(--color-light);
+    font-size: 0.72rem;
+    line-height: 1.35;
 }
 
 /*HEADER SOCIALS*/
@@ -99,6 +133,24 @@ header{
     .card {
         width: min(22rem, 100%);
         margin-top: 5rem;
+    }
+
+    .header_intro{
+        font-size: 0.9rem;
+    }
+
+    .header_proof{
+        gap: 0.75rem;
+        margin-top: 1.25rem;
+    }
+
+    .header_proof li{
+        min-width: 0;
+        flex: 1;
+    }
+
+    .header_proof span{
+        font-size: 0.65rem;
     }
 
     .header_socials , .scroll_down {
