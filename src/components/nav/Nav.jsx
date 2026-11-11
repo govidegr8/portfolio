@@ -33,6 +33,7 @@ function Nav({ activeSection, onNavigate }) {
             }}
             className={activeSection === index ? 'active' : ''}
             aria-label={`Go to ${id}`}
+            title={id.charAt(0).toUpperCase() + id.slice(1)}
             aria-current={activeSection === index ? 'page' : undefined}
           >
             {icon}
