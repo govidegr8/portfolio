@@ -9,7 +9,7 @@ const Footer = ({ onNavigate }) => {
   const links = [
     ['Home', 'home'],
     ['About', 'about'],
-    ['Experience', 'experience'],
+    ['Skills', 'skills'],
     ['Portfolio', 'portfolio'],
     ['Certifications', 'certifications'],
     ['Contact', 'contact'],

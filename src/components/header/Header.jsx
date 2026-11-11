@@ -12,7 +12,7 @@ const Header = ({ onScrollDown, onNavigate }) => {
     if (!meRef.current) return;
     
     if (isHoveringMe.current) {
-      meRef.current.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1.02)`;
+      meRef.current.style.transform = `translateX(-50%) perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1.02)`;
       meRef.current.style.boxShadow = `0 1.5rem 3rem rgba(0, 0, 0, 0.5)`;
       return;
     }
@@ -31,14 +31,14 @@ const Header = ({ onScrollDown, onNavigate }) => {
     const shadowX = xAxis * -15;
     const shadowY = yAxis * -15 + 10;
 
-    meRef.current.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    meRef.current.style.transform = `translateX(-50%) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     meRef.current.style.boxShadow = `${shadowX}px ${shadowY}px 25px rgba(0, 0, 0, 0.3)`;
   }
 
   const handleMouseLeave = () => {
     if (!meRef.current) return;
     // Reset to flat when mouse leaves header
-    meRef.current.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+    meRef.current.style.transform = `translateX(-50%) perspective(1000px) rotateX(0deg) rotateY(0deg)`;
     meRef.current.style.boxShadow = `0 0 15px rgba(0, 0, 0, 0.1)`;
   }
 

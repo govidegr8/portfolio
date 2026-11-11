@@ -1,18 +1,33 @@
+.nav_dock {
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
 nav{
     background: rgba(0, 0, 0, 0.3);
     width: max-content;
-    display: block;
     padding: 0.7rem 1.7rem;
-    z-index: 2;
-    position: fixed;
+    position: absolute;
     left: 50%;
-    transform: translate(-50%);
-    bottom: 2rem;
+    bottom: 1.5rem;
+    transform: translate(-50%, calc(100% + 1.5rem));
     display: flex;
     gap: 0.8rem;
     border-radius: 3rem;
     backdrop-filter: blur(15px);
     transition: var(--transition);
+}
+
+.nav_dock:hover nav,
+.nav_dock:focus-within nav {
+    transform: translate(-50%, 0);
 }
 
 nav a{
@@ -34,6 +49,10 @@ nav a.active{
 }
 
 @media screen and (max-width: 600px) {
+    .nav_dock {
+        height: 2rem;
+    }
+
     nav {
         bottom: 1rem;
         padding: 0.5rem 0.7rem;
@@ -43,5 +62,17 @@ nav a.active{
     nav a {
         padding: 0.7rem;
         font-size: 1rem;
+    }
+}
+
+@media (hover: none) {
+    .nav_dock {
+        height: auto;
+        pointer-events: none;
+    }
+
+    nav {
+        pointer-events: auto;
+        transform: translate(-50%, 0);
     }
 }

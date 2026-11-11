@@ -13,7 +13,7 @@ function Nav({ activeSection, onNavigate }) {
   const links = [
     { id: 'home', icon: <AiOutlineHome /> },
     { id: 'about', icon: <AiOutlineUser /> },
-    { id: 'experience', icon: <FiBook /> },
+    { id: 'skills', icon: <FiBook /> },
     { id: 'work', icon: <BiBriefcase /> },
     { id: 'portfolio', icon: <AiOutlineProject /> },
     { id: 'certifications', icon: <RiServiceLine /> },
@@ -21,23 +21,25 @@ function Nav({ activeSection, onNavigate }) {
   ]
 
   return (
-    <nav>
-      {links.map(({ id, icon }, index) => (
-        <a
-          href={`#${id}`}
-          key={id}
-          onClick={(event) => {
-            event.preventDefault()
-            onNavigate(index)
-          }}
-          className={activeSection === index ? 'active' : ''}
-          aria-label={`Go to ${id}`}
-          aria-current={activeSection === index ? 'page' : undefined}
-        >
-          {icon}
-        </a>
-      ))}
-    </nav>
+    <div className='nav_dock'>
+      <nav>
+        {links.map(({ id, icon }, index) => (
+          <a
+            href={`#${id}`}
+            key={id}
+            onClick={(event) => {
+              event.preventDefault()
+              onNavigate(index)
+            }}
+            className={activeSection === index ? 'active' : ''}
+            aria-label={`Go to ${id}`}
+            aria-current={activeSection === index ? 'page' : undefined}
+          >
+            {icon}
+          </a>
+        ))}
+      </nav>
+    </div>
   )
 }
 

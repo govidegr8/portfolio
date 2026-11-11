@@ -17,7 +17,13 @@
     border-radius: 1.2rem;
     text-align: center;
     border: 1px solid transparent;
+    min-width: 0;
     transition: var(--transition);
+}
+
+.contact_option h5 {
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .contact_option:hover{
