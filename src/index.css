@@ -67,6 +67,7 @@ body{
 
 .section_panel > section {
   min-height: 100%;
+  padding-bottom: 4rem;
 }
 
 /* GENERAL STYLES */
@@ -175,6 +176,10 @@ img{
 
   section > h2{
     margin-top: 2rem;
+  }
+
+  .section_panel > section {
+    padding-bottom: 5rem;
   }
 }
   
