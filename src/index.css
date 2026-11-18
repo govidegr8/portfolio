@@ -22,7 +22,7 @@
   --container-width-md: 86%;
   --container-width-sm: 90%;
 
-  --transition: all 400ms ease;
+  --transition: 240ms ease;
 }
 
 html{
@@ -40,6 +40,7 @@ body{
   color: var(--color-white);
   line-height: 1.7;
   background-image: url(../src/assets/bg-texture.png) ;
+  background-attachment: fixed;
   overflow: hidden;
 }
 
@@ -78,6 +79,10 @@ body{
 
 h1, h2, h3, h4, h5{
   font-weight: 500;
+}
+
+h1, h2, h3, h4, h5, p {
+  text-wrap: pretty;
 }
 
 h1{
@@ -136,6 +141,11 @@ a:hover{
 .btn-primary{
   background: var(--color-primary);
   color: var(--color-bg)
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.65;
 }
 
 img{

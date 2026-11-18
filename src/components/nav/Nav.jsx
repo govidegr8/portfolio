@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
 import './nav.css'
 import {AiOutlineHome} from 'react-icons/ai'
 import {AiOutlineUser} from 'react-icons/ai'
@@ -22,7 +20,7 @@ function Nav({ activeSection, onNavigate }) {
 
   return (
     <div className='nav_dock'>
-      <nav>
+      <nav aria-label='Primary navigation'>
         {links.map(({ id, icon }, index) => (
           <a
             href={`#${id}`}

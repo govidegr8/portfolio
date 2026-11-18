@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import Header from './components/header/Header'
 import Nav from './components/nav/Nav'
 import About from './components/about/About'
@@ -9,24 +9,34 @@ import Certifications from './components/certifications/Certifications'
 import Contact from './components/contact/Contact'
 import Footer from './components/footer/Footer'
 
-const sectionIds = ['home', 'about', 'skills', 'work', 'portfolio', 'certifications', 'contact']
+const sectionIds = Object.freeze(['home', 'about', 'skills', 'work', 'portfolio', 'certifications', 'contact'])
+
+const getInitialSection = () => {
+  const sectionFromHash = window.location.hash.slice(1)
+  const sectionIndex = sectionIds.indexOf(sectionFromHash)
+  return sectionIndex > -1 ? sectionIndex : 0
+}
 
 const App = () => {
-  const [activeSection, setActiveSection] = useState(0)
+  const [activeSection, setActiveSection] = useState(getInitialSection)
+  const activeSectionRef = useRef(activeSection)
   const touchStart = useRef(null)
   const isAnimating = useRef(false)
+  const animationTimeout = useRef(null)
+  const footerTimeout = useRef(null)
 
   const goToSection = useCallback((nextSection) => {
     const boundedSection = Math.max(0, Math.min(nextSection, sectionIds.length - 1))
-    if (boundedSection === activeSection || isAnimating.current) return
+    if (boundedSection === activeSectionRef.current || isAnimating.current) return
 
     isAnimating.current = true
+    activeSectionRef.current = boundedSection
     setActiveSection(boundedSection)
     window.history.replaceState(null, '', boundedSection === 0 ? '#' : `#${sectionIds[boundedSection]}`)
-    window.setTimeout(() => {
+    animationTimeout.current = window.setTimeout(() => {
       isAnimating.current = false
     }, 750)
-  }, [activeSection])
+  }, [])
 
   const navigateTo = useCallback((sectionId) => {
     const sectionIndex = sectionIds.indexOf(sectionId)
@@ -35,7 +45,7 @@ const App = () => {
 
   const goToFooter = () => {
     goToSection(sectionIds.length - 1)
-    window.setTimeout(() => {
+    footerTimeout.current = window.setTimeout(() => {
       const contactPanel = document.querySelector('.section_panel:last-child')
       contactPanel?.scrollTo({ top: contactPanel.scrollHeight, behavior: 'smooth' })
     }, 750)
@@ -52,10 +62,6 @@ const App = () => {
   ]
 
   useEffect(() => {
-    const hash = window.location.hash.slice(1)
-    const initialSection = sectionIds.indexOf(hash)
-    if (initialSection > -1) setActiveSection(initialSection)
-
     const handleWheel = (event) => {
       if (Math.abs(event.deltaY) < 10) return
 
@@ -67,7 +73,7 @@ const App = () => {
       }
 
       event.preventDefault()
-      goToSection(activeSection + (event.deltaY > 0 ? 1 : -1))
+      goToSection(activeSectionRef.current + (event.deltaY > 0 ? 1 : -1))
     }
 
     const handleKeyDown = (event) => {
@@ -76,11 +82,11 @@ const App = () => {
 
       if (['ArrowDown', 'PageDown', 'ArrowRight'].includes(event.key)) {
         event.preventDefault()
-        goToSection(activeSection + 1)
+        goToSection(activeSectionRef.current + 1)
       }
       if (['ArrowUp', 'PageUp', 'ArrowLeft'].includes(event.key)) {
         event.preventDefault()
-        goToSection(activeSection - 1)
+        goToSection(activeSectionRef.current - 1)
       }
       if (event.key === 'Home') goToSection(0)
       if (event.key === 'End') goToSection(sectionIds.length - 1)
@@ -91,8 +97,10 @@ const App = () => {
     return () => {
       window.removeEventListener('wheel', handleWheel)
       window.removeEventListener('keydown', handleKeyDown)
+      window.clearTimeout(animationTimeout.current)
+      window.clearTimeout(footerTimeout.current)
     }
-  }, [activeSection, goToSection])
+  }, [goToSection])
 
   const handleTouchStart = (event) => {
     touchStart.current = event.touches[0].clientY
@@ -101,7 +109,7 @@ const App = () => {
   const handleTouchEnd = (event) => {
     if (touchStart.current === null) return
     const distance = touchStart.current - event.changedTouches[0].clientY
-    if (Math.abs(distance) > 50) goToSection(activeSection + (distance > 0 ? 1 : -1))
+    if (Math.abs(distance) > 50) goToSection(activeSectionRef.current + (distance > 0 ? 1 : -1))
     touchStart.current = null
   }
 
@@ -109,7 +117,7 @@ const App = () => {
     <main className='page_shell' onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
       <div className='section_track' style={{ transform: `translateY(-${activeSection * 100}%)` }}>
         {sections.map(({ id, component }, index) => (
-          <div className='section_panel' key={id} aria-hidden={activeSection !== index}>
+          <div className='section_panel' key={id} aria-hidden={activeSection !== index} inert={activeSection !== index}>
             {component}
           </div>
         ))}
